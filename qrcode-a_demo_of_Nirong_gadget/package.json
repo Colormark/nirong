@@ -1,0 +1,24 @@
+{
+  "name": "nr-qrcode",
+  "supportNREngineVersion": "1.0",
+  "version": "1.0",
+  "description": "一个页面组件的演示",
+  "type": "Gadget",
+  "script": {
+    "design": "design.js",
+    "setting": "setting.json",
+    "render": "render.js",
+    "vendors": []
+  },
+  "gadgetCartButtonIcon": {
+    "svgImage": "./images/QRCoder.svg",
+    "text": "二维码"
+  },
+  "gadgetExtend":{
+    "scripts": [
+        "/scripts/qrcode.js", 
+        "/scripts/utf.js",
+        "/scripts/jquery.qrcode.js"
+    ]
+  }
+}
