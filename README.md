@@ -19,3 +19,9 @@
 1. 定制组件的开发和安装可以文档参考“[API.md](https://github.com/Colormark/nirong/blob/main/API.md)”
 2. 参考组件[qrcode](https://github.com/Colormark/nirong/tree/main/qrcode-a_demo_of_Nirong_gadget).
 3. 组件开发好后，可无需打包，直接在添加组件界面中选文件夹并提交即可
+
+## TODO：
+ - 插件安装
+ - 数据管理器，包括：上传和管理数据源；浏览数据结构；根据数据选择合适的展示组件
+ - 项目支持多页，支持菜单链接页面
+ - 支持组件的配件模式，例如：边框效果、背景样式等（GadgetAddon）
