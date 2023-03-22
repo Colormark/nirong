@@ -1,5 +1,6 @@
 # 泥融 - 数据展示设计器
-（暂未达到可开源的程度，仅提供客户端）
+![软件截图](暂未达到可开源的程度，仅提供客户端)
+（https://raw.githubusercontent.com/Colormark/nirong/main/UI.png）
 ## 客户端使用说明
 1. 在[Releases](https://github.com/Colormark/nirong/releases)中选择适合你操作系统的版本下载并安装。（Mac下安装失败请[参考](https://www.macw.com/news/2605.html)）
 2. 打开客户端，创建一个新项目或选择一个已有的项目，支持导入既有项目，点击编辑进入设计界面。
