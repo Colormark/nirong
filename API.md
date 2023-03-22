@@ -2,18 +2,18 @@
 ## 插件(设计器用)package.json
 ```
   {  
-    "name": "pluginName", // 插件名称
-    "version": "0.0.1", // 版本  
-    "supportEngineVersion": "^1.0", // 可选，支持的内核   
+    "name": "pluginName", // 插件名称，请注意唯一性，同名会被覆盖
+    "version": "0.0.1", // 版本，高版本会覆盖低版本
+    "supportEngineVersion": "^1.0", // 支持的内核   
     "main": "index.js" // 入口文件  
   }
 ```
 ## 组件(页面组件元素)package.json
 ```
   {  
-    "name": "gadgetName", // 组件名称
-    "supportNREngineVersion": "1.0", // 支持的内核版本
-    "version": "0.0.1", // 版本  
+    "name": "gadgetName", // 组件名称，请注意唯一性，同名会被覆盖
+    "supportNREngineVersion": "^1.0", // 支持的内核版本
+    "version": "0.0.1", // 版本，高版本会覆盖低版本  
     "type": "Gadget", // Gadget或Layout或GadgetAddon  
     "needDatasource": true, // 可选，是否需要启用Datasource  
     "bodyPath": ">.row", // 可选，组件Body的selector  
@@ -26,14 +26,14 @@
     },  
     "gadgetCartButtonIcon": {  
       "iconfont": "&#xe9e6;", //iconfont模式  
-      "svgImage" : "./images/icon.svg", //图片模式，svgImage和image二选一  
+      "svgImage" : "./images/icon.svg", //相对于组件文件夹的图片路径，svgImage和image二选一  
       "text": "文字"  
     },
-    "gadgetExtend":{ // 可选. 组件扩展的文件路径
-      "scripts": ["./scripts/qrcode.js"],
+    "gadgetExtend":{ // 可选。组件扩展的文件路径，相对于组件文件夹
+      "scripts": ["./scripts/qrcode.js"], 
       "styles":[".."]
     },
-    "resource": ["./images/"] // 可选. 组件备用资源（随时可被脚本调用）
+    "resource": ["./images/"] // 可选。 组件备用资源（随时可被脚本调用），相对于组件文件夹
   }
 ```
 ## 自定义组件的按钮
