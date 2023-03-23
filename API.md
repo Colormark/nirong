@@ -135,8 +135,8 @@
    - image 上传图片
    - datafile 上传数据文件
 - enums：
-   - 当gadget是select、tabs时，enums是数组，数据项包括：属性value值，label显示字符
-   - ，
+   - enums是数组
+   - 数组项包括属性：value值，label显示字符标识
 - 关联显示：
    - 定义一个显示组
    - targetDisplayGroup 显示组的控制项
