@@ -1,5 +1,5 @@
 # 泥融 - 低代码开发客户端LCDC
-(暂仅提供客户端). 
+(暂仅提供客户端，定制业务请联系10973837@qq.com). 
 ![软件截图](https://raw.githubusercontent.com/Colormark/nirong/main/UI.png)
 ## 客户端使用说明
 1. 在[Releases](https://github.com/Colormark/nirong/releases)中选择适合你操作系统的版本下载并安装。（Mac下安装失败请[参考](https://www.macw.com/news/2605.html)）
@@ -15,10 +15,12 @@
  - 向设计器安装一个新组建、添加一个数据源或数据文件等更新较大的操作必须重新发布。
  - 客户端内置一个轻量级版本的web服务器，在发布成功界面中可直接启动，并在浏览器中浏览制作好的页面
 
-## 组件开发
-1. 定制组件的开发和安装可以文档参考“[API.md](https://github.com/Colormark/nirong/blob/main/API.md)”
-2. 参考组件[qrcode](https://github.com/Colormark/nirong/tree/main/qrcode-a_demo_of_Nirong_gadget).
-3. 组件开发好后，可无需打包，直接在添加组件界面中选文件夹并提交即可
+## 扩展开发
+1. 组件用于实现网页里的各种丰富展示，插件用于增强客户端的功能
+2. 扩展开发文档参考“[API.md](https://github.com/Colormark/nirong/blob/main/API.md)”
+3. [组件开发参考](https://github.com/Colormark/nirong/tree/main/qrcode-a_demo_of_Nirong_gadget).
+4. [插件开发参考](https://github.com/Colormark/nirong/tree/main/a_demo_of_Nirong_plugin)
+5. 组件或插件开发好后，可无需打包，直接在添加界面中选文件夹并提交即可，也可以压缩成zip包并修改文件类型，组件为(nrg),插件为(nrp)
 
 ## TODO：
  - ~~插件安装~~ 已实现
@@ -27,3 +29,4 @@
  - 支持组件的配件模式，例如：边框效果、背景样式等（GadgetAddon）
  - 网页模版
  - 支持远程API Package（远程接口自描述）
+ - 支持从服务端批量下载组件
