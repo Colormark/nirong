@@ -1,5 +1,5 @@
-# 泥融 - 数据展示设计器
-(仅提供客户端). 
+# 泥融 - 低代码开发客户端LCDC
+(暂仅提供客户端). 
 ![软件截图](https://raw.githubusercontent.com/Colormark/nirong/main/UI.png)
 ## 客户端使用说明
 1. 在[Releases](https://github.com/Colormark/nirong/releases)中选择适合你操作系统的版本下载并安装。（Mac下安装失败请[参考](https://www.macw.com/news/2605.html)）
@@ -26,3 +26,4 @@
  - 项目支持多页，支持菜单链接页面
  - 支持组件的配件模式，例如：边框效果、背景样式等（GadgetAddon）
  - 网页模版
+ - 支持远程API Package（远程接口自描述）
