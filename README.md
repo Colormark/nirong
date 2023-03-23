@@ -20,10 +20,9 @@
 2. 扩展开发文档参考“[API.md](https://github.com/Colormark/nirong/blob/main/API.md)”
 3. [组件开发参考](https://github.com/Colormark/nirong/tree/main/qrcode-a_demo_of_Nirong_gadget).
 4. [插件开发参考](https://github.com/Colormark/nirong/tree/main/a_demo_of_Nirong_plugin)
-5. 组件或插件开发好后，可无需打包，直接在添加界面中选文件夹并提交即可，也可以压缩成zip包并修改文件类型，组件为(nrg),插件为(nrp)
 
 ## TODO：
- - ~~插件安装~~ 已实现
+ - ~~插件安装~~ **已实现**
  - 数据管理器，包括：上传和管理数据源；浏览数据结构；根据数据选择合适的展示组件
  - 项目支持多页，支持菜单链接页面
  - 支持组件的配件模式，例如：边框效果、背景样式等（GadgetAddon）
