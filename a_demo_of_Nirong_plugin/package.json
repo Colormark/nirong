@@ -1,0 +1,11 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "supportNREngineVersion": "^1.0",
+  "main": "index.js",
+  "icon": {
+    "svgImage" : "./images/icon.svg",
+    "position": "MenuBarRight",
+    "text": "Test"
+  }
+}
