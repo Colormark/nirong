@@ -8,10 +8,10 @@
  - 安装完成后如无报错，一般即可立即使用
 
 ### 插件文件夹结构
- > 插件名  *可以任意取名*
- >>  package.json  *描述插件的信息和结构*
- >>  main.js  *插件代码，名称在package.json中申明*
- >>  其他资源文件或文件夹 *在package.json中申明资源，如：images*
+ > 插件名  *可以任意取名*  
+ >>  package.json  *描述插件的信息和结构*  
+ >>  main.js  *插件代码，名称在package.json中申明*  
+ >>  其他资源文件或文件夹 *在package.json中申明资源，如：images*  
 
 ### package.json
 ```
@@ -72,12 +72,12 @@
  - 安装完成后如无报错，一般即可立即使用
 
 ### 组件文件夹结构
- > 组件名  *可以任意取名*
- >>  package.json  *描述组件的信息和结构*
- >>  design.js  *组件在设计器中用于设计的代码，名称在package.json中申明*
- >>  render.js  *组件在网页中用于实现组件效果的代码，名称在package.json中申明*
- >>  setting.json  *描述组件在设计器中，可供用户设置的配置项，名称在package.json中申明，但必须是json结构*
- >>  其他资源文件或文件夹 *在package.json中申明资源，如：images*
+ > 组件名  *可以任意取名*  
+ >>  package.json  *描述组件的信息和结构*  
+ >>  design.js  *组件在设计器中用于设计的代码，名称在package.json中申明*  
+ >>  render.js  *组件在网页中用于实现组件效果的代码，名称在package.json中申明*  
+ >>  setting.json  *描述组件在设计器中，可供用户设置的配置项，名称在package.json中申明，但必须是json结构*  
+ >>  其他资源文件或文件夹 *在package.json中申明资源，如：images*  
 
 ### 组件（Gadget）的类型
  - Layout（布局）
