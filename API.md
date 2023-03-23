@@ -112,7 +112,72 @@
     "resource": ["./images/"] // 可选。 组件备用资源（随时可被脚本调用），相对于组件文件夹
   }
 ```
- 
+### setting.json
+- json文档是一个数组
+- 数组中每一项是一个字典对象，代表一个设置项
+  属性项包括：
+   - gadget 类型，必须
+   - label 显示文字
+   - id 参数标识，gadget非header时必须
+   - default 默认标识
+   - enums 值项
+- gadget类型：
+   - header 显示一个表头
+   - text 文本
+   - textarea 大段文本
+   - number 数据微调器
+   - range 范围滑动器
+   - bool 是否选择器
+   - select 选择
+   - tabs 标签组
+   - date 日期
+   - color 颜色
+   - image 上传图片
+   - datafile 上传数据文件
+- enums：
+   - 当gadget是select、tabs时，enums是数组，数据项包括：属性value值，label显示字符
+   - ，
+- 关联显示：
+   - 定义一个显示组
+   - targetDisplayGroup 显示组的控制项
+   - displayGroup 显示组的控制内容项
+   - groupItem 显示组的控制内容项的关联值
+   - 例如：
+   ```
+   {
+        "id": "imageType",
+        "gadget": "tabs",
+        "targetDisplayGroup": "imageTypeChoose",
+        "enums": [
+            {
+                "value": "local",
+                "label": "本地"
+            },
+            {
+                "value": "remote",
+                "label": "网络"
+            }
+        ]
+    },
+    {
+        "id": "localImage",
+        "gadget": "upload-image",
+        "label": "本地图片文件",
+        "displayGroup": "imageTypeChoose",
+        "groupItem": "local"
+    },
+    {
+        "id": "url",
+        "gadget": "text",
+        "label": "网络图片地址",
+        "displayGroup": "imageTypeChoose",
+        "groupItem": "remote"
+    }
+   ```
+- 其他：
+   - 当类型是bool时，有额外属性:displayLabelAtRight:bool（显示标签在右边供设置）
+   - 当类型是range时，有额外属性:"min", "max", "step"
+
 ### API
 类名： Nirong, NR   
  
@@ -124,19 +189,19 @@
 #### 组件及组件实例
 - NR.getNRObject(selector:Any, type:Enum) ```// 查询组件```   
  selector解释：   
- - 当字符串，代表组件对象的name，例如:getNRObject("AAABBB")  
- - 当是对象，并且是Instance，则根据实例查询组件
- - type非必需
+   - 当字符串，代表组件对象的name，例如:getNRObject("AAABBB")  
+   - 当是对象，并且是Instance，则根据实例查询组件
+   - type非必需
 
 - NR.getNRInstance(selector:Any, type:Enum) ```// 返回泥融组件的实例```  
 selector解释：   
- - 当字符串，代表组件实例的id，例如:getNRInstance("CCCDDD")  
- - 可以简写成 NR(!selector) 模式, 在id前面加上! 
+   - 当字符串，代表组件实例的id，例如:getNRInstance("CCCDDD")  
+   - 可以简写成 NR(!selector) 模式, 在id前面加上! 
 
 - NR.createInstance(selector:Any, domBuildFunc:function回调, parentInstanceSelector:Any父级容器, appendType:Enum<"insert","append","prepend">) ```//创建实例``` 
 selector解释：   
- - 当字符串，代表组件对象的name 
- - 当是对象，并且是GadgetInfo，则根据组件创建实力
+   - 当字符串，代表组件对象的name 
+   - 当是对象，并且是GadgetInfo，则根据组件创建实力
 
 - **WARN deprecated弃用** NR.createLayoutInstance(selector:Any, domBuildFunc:function回调, parentInstanceSelector:Any父级容器, appendType:Enum<"insert","append","prepend">) ```//创建布局实例```   
 - **WARN deprecated弃用** NR.createLayoutInstance(selector:Any, domBuildFunc:function回调, parentInstanceSelector:Any父级容器, appendType:Enum<"insert","append","prepend">) ```//创建布局实例```   
@@ -155,12 +220,12 @@ selector解释：
 #### 事件
 - NR(function(){```/* 画布初始化完毕 */```})  
 - NR("document").on("eventName", callback)  
- > - eventName: dataload ```// 当获取到数据```  
+   - eventName: dataload ```// 当获取到数据```  
 - NR("canvas").on("eventName", callback)  
- > - eventName: canvas:click ```// 当画布被点击```  
- > - eventName: gadget:click ```// 当画布被点击```  
- > - eventName: container:click ```// 当容器被点击```  
- > - eventName: layouter:click ```// 当布局器被点击```  
+   - eventName: canvas:click ```// 当画布被点击```  
+   - eventName: gadget:click ```// 当画布被点击```  
+   - eventName: container:click ```// 当容器被点击```  
+   - eventName: layouter:click ```// 当布局器被点击```  
 
 #### 数据
 - NR.projectStore() ```// 获取项目数据对象```  
