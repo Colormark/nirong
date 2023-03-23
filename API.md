@@ -184,8 +184,8 @@
  
 #### 注册组件
 - NR.registerNRGadgetObject(gadgetInfo:Object, gadgetType:Enum) ```// 根据类型注册组件```  
-- **WARN deprecated弃用** NR.registerNRGadgetObject(gadgetInfo:Object) ```// 注册一般组件```  
-- **WARN deprecated弃用** NR.registerNRLayoutObject(layoutInfo:Object) ```// 注册布局组件```  
+- **WARN deprecated弃用** ~~NR.registerNRGadgetObject(gadgetInfo:Object)~~ ```// 注册一般组件```  
+- **WARN deprecated弃用** ~~NR.registerNRLayoutObject(layoutInfo:Object)~~ ```// 注册布局组件```  
 
 #### 组件及组件实例
 - NR.getNRObject(selector:Any, type:Enum) ```// 查询组件```   
@@ -204,8 +204,8 @@ selector解释：
    - 当字符串，代表组件对象的name 
    - 当是对象，并且是GadgetInfo，则根据组件创建实力
 
-- **WARN deprecated弃用** NR.createLayoutInstance(selector:Any, domBuildFunc:function回调, parentInstanceSelector:Any父级容器, appendType:Enum<"insert","append","prepend">) ```//创建布局实例```   
-- **WARN deprecated弃用** NR.createLayoutInstance(selector:Any, domBuildFunc:function回调, parentInstanceSelector:Any父级容器, appendType:Enum<"insert","append","prepend">) ```//创建布局实例```   
+- **WARN deprecated弃用** ~~NR.createLayoutInstance(selector:Any, domBuildFunc:function回调, parentInstanceSelector:Any父级容器, appendType:Enum<"insert","append","prepend">)~~ ```//创建布局实例```   
+- **WARN deprecated弃用** ~~NR.createLayoutInstance(selector:Any, domBuildFunc:function回调, parentInstanceSelector:Any父级容器, appendType:Enum<"insert","append","prepend">)~~ ```//创建布局实例```   
 
 - NR.renderGadget(gadgetInfo, savedInstanceInfo, appendType) ```// 渲染组件```  
 - NR.runRenderGadgetInner($wrapper, savedInstanceInfo) ```// 渲染组件内部内容```  
