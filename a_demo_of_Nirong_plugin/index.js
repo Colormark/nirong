@@ -1,15 +1,13 @@
 
 module.exports = function (){
-  
-  const icon  = {...this.icon, ...{"id": this.name, "gadgetPath": this.path}};
-  console.log(this)
-  NRD.registerButton(icon, function(){
+  const $btn = NRD.renderPluginButton(this.icon, this);
+  $btn.on("click", function(){
     const $window = $(`
         <div class="modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
           <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title">测试</h5>
+                <h5 class="modal-title">Tada</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body p-5">

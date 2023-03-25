@@ -1,11 +1,12 @@
 {
-  "name": "test",
-  "version": "0.0.1",
+  "name": "Tada",
+  "version": "0.0.2",
   "supportNREngineVersion": "^1.0",
   "main": "index.js",
   "icon": {
     "svgImage" : "./images/icon.svg",
     "position": "MenuBarRight",
-    "text": "Test"
+    "text": "Tada",
+    "tooltip": "一个插件演示"
   }
 }
