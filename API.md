@@ -23,7 +23,8 @@
     "icon": { // 插件图标，非必需
       "svgImage" : "./images/icon.svg", // 相对于组件文件夹的图片路径，svgImage和image二选一  
       "position" : "位置名", // 插件图标出现的位置
-      "text": "文字" // 非必需
+      "text": "文字", // 非必需
+      "tooltip": "我是提示" // 非必需，鼠标悬浮提升
     },
   }
 ```
@@ -46,7 +47,8 @@
 
 #### 插件注册
 - NRD.registerWithPath(pluginName:String, isCore:Bool) ```// 注册插件```  
-- NRD.renderGadgetCartButton(iconInfo:Object, gadgetInfo:Object, keyName:String) ```// 渲染一个按钮到组件列表，keyName是唯一标识(可选)```  
+- NRD.renderGadgetCartButton(iconInfo:Object, gadgetInfo:Object, keyName:String) ```// 渲染一个按钮到组件列表，keyName是唯一标识(可选)``` 
+- NRD.renderPluginButton(iconInfo:Object, gadgetInfo:Object, keyName:String) ```// 渲染一个插件按钮，keyName是唯一标识(可选)```  
 
 #### Canvas 画布
 - NRD("selected") ```// 返回画布中选中的组件```  
