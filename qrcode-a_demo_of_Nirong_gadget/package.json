@@ -3,12 +3,11 @@
   "supportNREngineVersion": "1.0",
   "version": "1.0",
   "description": "一个页面组件的演示",
-  "type": "Gadget",
+  "type": "Widget",
   "script": {
     "design": "design.js",
     "setting": "setting.json",
-    "render": "render.js",
-    "vendors": []
+    "render": "render.js"
   },
   "gadgetCartButtonIcon": {
     "svgImage": "./images/QRCoder.svg",
