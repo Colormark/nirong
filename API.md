@@ -83,9 +83,9 @@
 
 ### 组件（Gadget）的类型
  - Layout（布局）
- - Widget（独立的小web组件，用于展示和交互，Widget必须在Layout中）
+ - Widget（独立的web组件，用于展示和交互，Widget必须在Layout中）
  - PageAddon（页面附件，如：网页背景特效）
- - WidgetAddon（小web组件附件，如：外框）
+ - WidgetAddon（web组件附件，如：外框）
 
 ### package.json
 ```
@@ -93,10 +93,13 @@
     "name": "gadgetName", // 组件名称，请注意唯一性，同名会被覆盖
     "supportNREngineVersion": "^1.0", // 支持的内核版本
     "version": "0.0.1", // 版本，高版本会覆盖低版本  
-    "type": "Widget", // Gadget的类型  
+    "type": "Widget", // Gadget的类型，可选：Layout、Widget、PageAddon、WidgetAddon  
     "needDatasource": true, // 可选，是否需要启用Datasource  
-    "bodyPath": ">.row", // 可选，组件Body的selector  
-    "notClearBodyAfterAdjust": true, // 可选，当属性参数面板调整后，不清除组件的Body  
+    "bodyPath": ">.row", // 可选，组件Body的selector，用于帮助系统找到组件的body的DOM  
+    [new]"allowWidgetAddon": true, // 可选，允许应用额外附件
+    [new]"allowOnlyOneInstance": false, // 可选，一个页面中同名组件只允许有一个实例,仅有效于PageAddon类型
+    "notClearBodyAfterAdjust": true, // 可选，当属性参数面板调整后，不自动清除组件的Body的内容  
+    [new]"isContainer": true, // 可选，说明组件是一个容器，仅用于Layout类型
     "script": {  
       "design": "design.js", // 设计文件，必须在组件目录中  
       "setting": "setting.json", // 配置项，必须在组件目录中  
@@ -179,7 +182,10 @@
    ```
 - 其他：
    - 当类型是bool时，有额外属性:displayLabelAtRight:bool（显示标签在右边供设置）
-   - 当类型是range时，有额外属性:"min", "max", "step"
+   - 当类型是range时，有额外属性:"min", "max", "step"  
+
+   注意：  
+   - setting.json文件的字符串信息里不可出现\n（否则会导致发布失败，后面会解决）
 
 ### API
 类名： Nirong, NR   
@@ -201,7 +207,7 @@ selector解释：
    - 当字符串，代表组件实例的id，例如:getNRInstance("CCCDDD")  
    - 可以简写成 NR(!selector) 模式, 在id前面加上! 
 
-- NR.createInstance(selector:Any, domBuildFunc:function回调, parentInstanceSelector:Any父级容器, appendType:Enum<"insert","append","prepend">) ```//创建实例``` 
+- NR.createInstance(selector:Any, domBuildFunc:function回调, parentInstanceSelector:Any父级, appendType:Enum<"insert","append","prepend">, referId:appendType:prepend等相对于的实例ID) ```//创建实例``` 
 selector解释：   
    - 当字符串，代表组件对象的name 
    - 当是对象，并且是GadgetInfo，则根据组件创建实力
@@ -238,6 +244,6 @@ selector解释：
 - NR.resolveConfig(defaultSetting:Array, savedConfig:Object) ```// 合成配置```  
 - NR.isDesignMode() ```// 是否是设计器状态```  
 - NR.uuid(length) // ```创建唯一ID， length默认为24``` 
-- NR.toast(msg, type, ifMoreTime, size) ```// toast效果 ```
-- NR(this).appendFiles(scripts, styles) ```// 在组件design中添加代码和样式， scripts, styles如是数组则意味加多个，scripts, styles必须在组件目录中```  
+- [new] NR.toast(msg, type, ifMoreStayTime, size) ```// toast效果，msg 支持html ```
+- NR(this).appendFiles(scripts, styles) ```// 在组件design中添加代码和样式， scripts, styles如是数组则意味加多个，scripts, styles必须在组件目录中```   
 
