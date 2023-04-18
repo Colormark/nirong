@@ -2,6 +2,8 @@
     
 我们可接触到的低代码开发工具/平台几乎都是面向开发人员的，普通非技术开发用户几乎无法使用，即使对于稍微有技术底子的用户学习成本也很高，故而开发这个面向普通用户的“无代码”页面开发（设计）客户端工具，其主思路是：技术人员参与将数据和展示组件化，普通用户可以便捷的选用组件并直接生成网页。  
 
+演示视频[https://www.bilibili.com/video/BV1s24y1c7o1/](https://www.bilibili.com/video/BV1s24y1c7o1/)
+
 ![软件截图](https://raw.githubusercontent.com/Colormark/nirong/main/UI.png)
 ## 客户端使用说明
 1. 在[Releases](https://github.com/Colormark/nirong/releases)中选择适合你操作系统的版本下载并安装。（Mac下安装失败请[参考](https://www.macw.com/news/2605.html)）
