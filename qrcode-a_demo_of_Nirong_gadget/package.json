@@ -1,7 +1,8 @@
 {
   "name": "nr-qrcode",
+  "displayName": "二维码Demo",
   "supportNREngineVersion": "1.0",
-  "version": "1.0",
+  "version": "0.2",
   "description": "一个页面组件的演示",
   "type": "Widget",
   "script": {
