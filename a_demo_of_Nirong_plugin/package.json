@@ -6,7 +6,6 @@
   "icon": {
     "svgImage" : "./images/icon.svg",
     "position": "MenuBarRight",
-    "text": "Tada",
-    "tooltip": "一个插件演示"
+    "tooltip": "清除页面所有组件"
   }
 }
