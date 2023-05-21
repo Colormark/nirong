@@ -14,10 +14,10 @@
 ## 2.2 package.json
 ``` json
   {  
-    "name": "gadgetName", // 组件名称，请注意唯一性，同名会被覆盖
-    "displayName": "图文轮播", // 组件显示名称
-    "supportNREngineVersion": "^1.0", // 支持的内核版本
-    "version": "0.0.1", // 版本，高版本会覆盖低版本  
+    "name": "gadgetName",
+    "displayName": "图文轮播",
+    "supportNREngineVersion": "^1.0",
+    "version": "0.0.1",  
     "type": "Widget", 
     "needDatasource": true,  
     "bodyPath": ">.row",  
@@ -48,7 +48,7 @@
 ### 2.2.1 Options 总览
 
   |  Name  |  Type  | Required  |  Default  |  Description  |
-  |  ------------  |  ------------  |  ------------  |  ------------  |
+  :- | :- | :-: | :- | :-
   |  name  |  string  |  是  |  -  |  组件名称，请注意唯一性，同名会被覆盖  |
   | displayName | string | 是  | - | 组件显示名称 |
   | supportNREngineVersion | string | 是  | - | 支持的内核版本 |
