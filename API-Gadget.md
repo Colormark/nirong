@@ -1,5 +1,4 @@
 # 1. 组件安装
-
  - 打开“ 菜单 > 扩展 > 安装组件 ”，在弹窗中选择租件的文件或文件夹
  - 安装完成后如无报错，一般即可立即使用
 
@@ -13,44 +12,78 @@
  >>  其他资源文件或文件夹 *在package.json中申明资源，如：images*  
 
 ## 2.2 package.json
-```
+``` json
   {  
     "name": "gadgetName", // 组件名称，请注意唯一性，同名会被覆盖
+    "displayName": "图文轮播", // 组件显示名称
     "supportNREngineVersion": "^1.0", // 支持的内核版本
     "version": "0.0.1", // 版本，高版本会覆盖低版本  
-    "type": "Widget", // Gadget的类型，可选：Layout、Widget、PageAddon、WidgetAddon  
-    "needDatasource": true, // 可选，是否需要启用Datasource  
-    "bodyPath": ">.row", // 可选，组件Body的selector，用于帮助系统找到组件的body的$DOM  
-    "allowWidgetAddon": true, // 可选，允许应用额外附件
-    "allowOnlyOneInstance": false, // 可选，一个页面中同名组件只允许有一个实例,仅有效于PageAddon类型
-    "notClearBodyAfterAdjust": true, // 可选，当属性参数面板调整后，不自动清除组件的Body的内容  
-    "isContainer": false, // 可选，说明组件是一个容器，仅用于Layout类型
-    "canNotAppendSelf": false, // 可选，不能在内部添加自己的实例，仅用于Layout类型
+    "type": "Widget", 
+    "needDatasource": true,  
+    "bodyPath": ">.row",  
+    "allowWidgetAddon": true,
+    "allowOnlyOneInstance": false,
+    "notClearBodyAfterAdjust": true,  
+    "isContainer": false,
+    "canNotAppendSelf": false,
+    "isGlobalWidget": false,
     "script": {  
-      "design": "design.js", // 设计用脚本文件，文件名任意，必须在组件目录中  
-      "render": "render.js",  // 渲染用脚本文件，文件名任意，必须在组件目录中
-      "setting": "setting.json" // 配置用JSON文件，文件名任意，必须在组件目录中  // 暂仅支持JSON格式，因为不规范的Plain Object问题极多 
+      "design": "design.js", 
+      "render": "render.js", 
+      "setting": "setting.json" 
     },  
     "gadgetCartButtonIcon": {  
-      "svgImage" : "./images/icon.svg", //相对于组件文件夹的图片路径，svgImage和image二选一  
-      "text": "文字"  
+      "svgImage" : "./images/icon.svg", 
+      "text": "文字"
     },
-    "gadgetExtend":{ // 可选。组件扩展的文件路径，相对于组件文件夹
+    "gadgetExtend":{
       "scripts": ["./scripts/qrcode.js"], 
       "styles":[".."]
     },
-    "vendors": [], // 引用包的数组对象，同时适用于design、render
-    "designVendors": [], // 引用包的数组对象，只适用于design
-    "resource": ["./images/"] // 可选。 组件备用资源（随时可被脚本调用），相对于组件文件夹
+    "vendors": [], 
+    "designVendors": [],
+    "resource": ["./images/"]
   }
 ```
-### 2.2.1 组件（Gadget）的类型
+### 2.2.1 Options 总览
+
+  |  Name  |  Type  | Required  |  Default  |  Description  |
+  |  ------------  |  ------------  |  ------------  |  ------------  |
+  |  name  |  string  |  是  |  -  |  组件名称，请注意唯一性，同名会被覆盖  |
+  | displayName | string | 是  | - | 组件显示名称 |
+  | supportNREngineVersion | string | 是  | - | 支持的内核版本 |
+  | version | string | 是  | - | 版本，高版本会覆盖低版本 |
+  | type | Enum | 是  | - | Gadget的类型，可选：Layout、Widget、PageAddon、WidgetAddon |
+  | needDatasource | boolean  | 否 | false | 是否需要启用Datasource |
+  | bodyPath | string,selctor | 否 | - | 组件Body的selector，用于帮助系统找到组件的body的$DOM |
+  | allowWidgetAddon  | boolean  | 否  | true | 允许应用额外附件 |
+  | allowOnlyOneInstance  | boolean  | 否  | false | 一个页面中同名组件只允许有一个实例,仅有效于PageAddon类型 |
+  | notClearBodyAfterAdjust  | boolean  | 否  | true | 当属性参数面板调整后，不自动清除组件的Body的内容 |
+  | isContainer  | boolean  | 否  | false | 说明组件是一个容器，仅用于Layout类型 |
+  | canNotAppendSelf  | boolean  | 否  | false | 不能在内部添加自己的实例，仅用于Layout类型 |
+  | isGlobalWidget  | boolean  | 否  | false | 是否是全局（全站）组件 |
+  | vendors  | Array>Enum  | 否  | - | 引用包的数组对象，同时适用于design、render |
+  | designVendors  | Array>Enum  | 否  | - | 引用包的数组对象，只适用于design |
+  | resource  | Array>String  | 否  | - | 组件备用资源（随时可被脚本调用），相对于组件文件夹 |
+  | script | Object | 是 | - | 指出脚本文件 |
+  | script.design | string,file path | 否 | - | 设计用脚本文件，文件名任意，必须在组件目录中 |
+  | script.render | string,file path | 是 | - | 渲染用脚本文件，文件名任意，必须在组件目录中 |
+  | script.setting | string,file path | 是 | - | 配置用JSON文件，文件名任意，必须在组件目录中  // 暂仅支持JSON格式，因为不规范的Plain Object问题极多 |
+  | gadgetCartButtonIcon | Object | 否 | - | 组件选择列表中的组件信息 |
+  | gadgetCartButtonIcon.svgImage / image | string,file path | 否 | - | 相对于组件文件夹的图片路径，svgImage和image二选一，建议使用svg，因为可以自动调成与系统一致的颜色 |
+  | gadgetCartButtonIcon.text | string,file path | 否 | - | 显示的文字，如不设置，则显示displayName |
+  | gadgetExtend | Object | 否 | - | 需要被扩展并默认载入的脚本文件 |
+  | gadgetExtend.scripts | Array,file path | 否 | - | js文件 |
+  | gadgetExtend.styles | Array,file path | 否 | - | css文件 |
+
+
+### 2.2.2 组件（Gadget）的类型: type
  - Layout（布局）
  - Widget（独立的web组件，用于展示和交互，Widget必须在Layout中）
  - PageAddon（页面附件，如：网页背景特效）
  - WidgetAddon（web组件附件，如：外框）
 
-### 2.2.2 vendors/designVendors
+### 2.2.3 引用包：vendors/designVendors
 vendors/designVendors是个数组，主要防止组件间重复引用一些第三方包，designVendors只用于design（不会用于发布）。    
 **系统内置的vendor包括（暂不支持自定义vendor）**:
 - 默认载入，无需引用:
@@ -67,9 +100,13 @@ vendors/designVendors是个数组，主要防止组件间重复引用一些第�
   - antv-data-set  ```v0.10.1``` 
   - antv-hierarchy  ```v0.5.0``` 
 
+- 仅限开发者预览版(版本号后有Developer Preview标志)
+  - react ```18.2.0```
+  - antd ```v5.4.5```
+
 ## 2.3 脚本design
 用于配合用户操作和设计组件的脚本文件. 参考如下：
-```
+``` javascript
   module.exports = function(){
 
       console.log(this) // 返回组件信息
@@ -116,26 +153,42 @@ vendors/designVendors是个数组，主要防止组件间重复引用一些第�
 ## 2.5 setting.json
 - 当选中组件时，设计器根据setting.json内容自动在属性栏渲染出配置项，当用户设置后，自动保存并将修改后的值传到渲染脚本供刷新组件效果
 - json文档是一个数组
-- 数组中每一项是一个字典对象（Pairs），代表一个设置项
-  属性项包括：
-   - gadget 类型，必须
+- 数组中每一项是一个字典对象（Pairs），代表一个设置项  
+  属性包括：
+   - control(别名:gadget) 类型，必须
    - label 显示文字
-   - id 参数标识，gadget非header时必须
+   - id 参数标识，control非header、divider时必须
    - default 默认标识
    - enums 值项
-- gadget类型：
+- control类型：
    - header 显示一个表头
-   - text 文本
+      -  info 可选, 附加信息，例如 ```"info": {"title": "致谢", "summary": "此组件基于ECharts开发."}```
+   - divider 显示一个分割线
+   - text(别名：input) 文本
    - textarea 大段文本
-   - number 数据微调器
+   - number(别名：numberSpinner) 数据微调器
    - range 范围滑动器
-   - bool 是否选择器
+      - min, max, step
+      - displayValue 是否显示用户设置的值
+   - switch 开关选择器
+   - checkbox 是否选择器
    - select 选择
-   - tabs 标签组
+      - enums
+   - tabs 选项卡 ```该control强制不显示label```
+      - enums
+   - segmented 分段控件、标签组
+      - enums
    - date 日期
-   - color 颜色
-   - image 上传图片
-   - datafile 上传数据文件
+   - color(别名：colorPicker) 颜色
+   - image(别名：imagePicker) 上传图片
+   - datafile(别名：dataPicker) 上传数据文件
+
+   - dynamicFormItems 动态增减嵌套字段
+      - defaultItemNumbers 默认渲染的Item数量，默认1
+      - maxItemNumbers 可选，最大Item数量
+      - minItemNumbers 可选，最小Item数量， 默认1
+      - items item项，数组,内部是其他Control
+
 - enums：
    - enums是数组
    - 数组项包括属性：value值，label显示字符标识
@@ -145,36 +198,38 @@ vendors/designVendors是个数组，主要防止组件间重复引用一些第�
    - displayGroup 显示组的控制内容项
    - groupItem 显示组的控制内容项的关联值, 支持字符串和数组两种模式
    - 例如：
-   ```
-   {
-        "id": "imageType",
-        "gadget": "tabs",
-        "targetDisplayGroup": "imageTypeChoose",
-        "enums": [
-            {
-                "value": "local",
-                "label": "本地"
-            },
-            {
-                "value": "remote",
-                "label": "网络"
-            }
-        ]
-    },
-    {
-        "id": "localImage",
-        "gadget": "upload-image",
-        "label": "本地图片文件",
-        "displayGroup": "imageTypeChoose",
-        "groupItem": "local"
-    },
-    {
-        "id": "url",
-        "gadget": "text",
-        "label": "网络图片地址",
-        "displayGroup": "imageTypeChoose",
-        "groupItem": "remote"
-    }
+   ``` json
+    [
+      {
+            "id": "imageType",
+            "control": "tabs",
+            "targetDisplayGroup": "imageTypeChoose",
+            "enums": [
+                {
+                    "value": "local",
+                    "label": "本地"
+                },
+                {
+                    "value": "remote",
+                    "label": "网络"
+                }
+            ]
+        },
+        {
+            "id": "localImage",
+            "control": "upload-image",
+            "label": "本地图片文件",
+            "displayGroup": "imageTypeChoose",
+            "groupItem": "local"
+        },
+        {
+            "id": "url",
+            "control": "text",
+            "label": "网络图片地址",
+            "displayGroup": "imageTypeChoose",
+            "groupItem": "remote"
+        }
+    ]
    ```
 - 其他：
    - 当类型是bool时，有额外属性:displayLabelAtRight:bool（显示标签在右边供设置）
