@@ -1,8 +1,14 @@
-# 泥融 - 低代码开发客户端LCDC V1.2.10
+# 泥融 - 低代码开发客户端LCDC V1.3.1
     
+1. 定义  
+泥融是一个不需要专业程序员和设计师，也不需要复杂的技术工具，就能创建高质量Web内容和视觉设计的客户端软件。
+
+2. 为什么要开发这款工具？  
 我们可接触到的低代码开发工具/平台几乎都是面向开发人员的，普通非技术开发用户几乎无法使用，即使对于稍微有技术底子的用户学习成本也很高，故而开发这个面向普通用户的“无代码”页面开发（设计）客户端工具，其主思路是：技术人员参与将数据和展示组件化，普通用户可以便捷的选用组件并直接生成网页。  
 
-演示视频: [https://www.bilibili.com/video/BV1s24y1c7o1/](https://www.bilibili.com/video/BV1s24y1c7o1/)
+3. 演示 
+
+[https://www.bilibili.com/video/BV14m4y1v7Kx/](https://www.bilibili.com/video/BV14m4y1v7Kx/)
 
 ![软件截图](https://raw.githubusercontent.com/Colormark/nirong/main/UI.png)
 ## 客户端使用说明
